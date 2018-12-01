@@ -37,7 +37,7 @@ defmodule AdventOne do
     sum = val + hd(history)
     cond do
       sum in history -> sum
-      true -> find_repeat(t ++ [h], [sum|history])
+      true -> find_repeat(t ++ [h], [sum] ++ history)
     end
   end
 end
