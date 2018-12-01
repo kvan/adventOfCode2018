@@ -1,7 +1,11 @@
 # Adventone
 
-Sums a file with one signed integer per line.
+Solve the first advent task
 
 ## Usage
 
-    adventone <filename>
+  1. Sum list of signed integers
+    adventone sum <filename>
+
+  2. Find first number reached twice
+    adventone twice <filename>
