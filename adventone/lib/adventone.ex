@@ -1,11 +1,15 @@
 defmodule AdventOne do
   def main(args) do
-    case File.read(hd(args)) do
-      {:ok, body} -> body
-      |> String.split("\n", trim: true)
-      |> sum_list
-      |> IO.inspect
-      {:error, _} -> IO.puts "Non merci!\n"
+    case args do
+      [] -> IO.puts "Need a file."
+      [file|_] ->
+        case File.read(file) do
+          {:ok, body} -> body
+          |> String.split("\n", trim: true)
+          |> sum_list
+          |> IO.inspect
+          {:error, _} -> IO.puts "File not found: #{file}"
+        end
     end
   end
 
