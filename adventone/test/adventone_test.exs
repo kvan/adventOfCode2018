@@ -13,4 +13,11 @@ defmodule AdventOneTest do
     assert AdventOne.find_repeat(["-6","+3","+8","+5","-6"]) == 5
     assert AdventOne.find_repeat(["+7","+7","-2","-7","-4"]) == 14
   end
+
+  test "Task two fast" do
+    assert AdventOne.find_repeat_mapset(["+1","-1"]) == 0
+    assert AdventOne.find_repeat_mapset(["+3","+3","+4","-2","-4"]) == 10
+    assert AdventOne.find_repeat_mapset(["-6","+3","+8","+5","-6"]) == 5
+    assert AdventOne.find_repeat_mapset(["+7","+7","-2","-7","-4"]) == 14
+  end
 end

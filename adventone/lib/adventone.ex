@@ -6,6 +6,8 @@ defmodule AdventOne do
       process_file(file, &sum_list/1)
       [cmd, file| _] when cmd == "twice" -> 
       process_file(file, &find_repeat/1)
+      [cmd, file| _] when cmd == "fasttwice" -> 
+      process_file(file, &find_repeat_mapset/1)
     end
   end
 
@@ -38,6 +40,21 @@ defmodule AdventOne do
     cond do
       sum in history -> sum
       true -> find_repeat(t ++ [h], [sum] ++ history)
+    end
+  end
+
+  def find_repeat_mapset(lines) do
+    set = MapSet.put(MapSet.new(), 0)
+    find_repeat_mapset(lines, set, 0)
+  end
+
+  def find_repeat_mapset([h|t], set, sum) do
+    {val, ""} = Integer.parse(h)
+    newsum = val + sum
+    if MapSet.member?(set, newsum) do
+      newsum
+    else
+      find_repeat_mapset(t ++ [h], MapSet.put(set, newsum), newsum)
     end
   end
 end
