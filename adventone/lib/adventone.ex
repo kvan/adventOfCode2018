@@ -44,8 +44,7 @@ defmodule AdventOne do
   end
 
   def find_repeat_mapset(lines) do
-    set = MapSet.put(MapSet.new(), 0)
-    find_repeat_mapset(lines, set, 0)
+    find_repeat_mapset(lines, MapSet.new([0]), 0)
   end
 
   def find_repeat_mapset([h|t], set, sum) do
