@@ -27,24 +27,16 @@ module ProblemTwo =
             |> Array.map(fun x -> fst x)
             |> System.String
 
-    let hammingDistance x y =
-        if String.length x <> String.length y then
-            42
-        else
-            Array.zip (x.ToCharArray()) (y.ToCharArray())
-            |> Array.filter(fun x -> fst x <> snd x)
-            |> Array.length
-
     let allOneDistances box boxes =
         boxes
-        |> Seq.map(fun x -> (x, hammingDistance x box))
-        |> Seq.filter(fun x -> snd x = 1)
+        |> Seq.map(fun x -> (x, commonLetters x box))
+        |> Seq.filter(fun x -> String.length (fst x) - String.length (snd x) = 1)
 
     let getCommonLetters boxes =
         boxes
-        |> Seq.map(fun box -> (box, allOneDistances box boxes))
-        |> Seq.filter(fun x -> Seq.length(snd x) > 0)
-        |> Seq.map(fun x -> commonLetters (fst x) (fst (Seq.head (snd x))))
+        |> Seq.map(fun box -> allOneDistances box boxes)
+        |> Seq.filter(fun x -> Seq.length x > 0)
+        |> Seq.map(fun x -> snd (Seq.head x))
         |> Seq.distinct
     
  
