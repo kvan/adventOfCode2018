@@ -2,4 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/adventtwo/adventtwo/bin/Debug
+/adventtwo/adventtwo/bin
+/adventtwo/adventtwo/obj
+/adventtwo/packages
+/adventtwo/tests/bin
+/adventtwo/tests/obj
+/adventtwo/boxes.txt
