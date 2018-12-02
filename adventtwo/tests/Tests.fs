@@ -18,3 +18,11 @@ let ``hasNumber finds nothing`` () =
 let ``checksum`` () =
     let boxes = [| "abcdef"; "bababc"; "abbcde"; "abcccd"; "aabcdd"; "abcdee"; "ababab" |]
     Assert.Equal(12, ProblemOne.checksum boxes)
+
+[<Fact>]
+let ``Hamming distance`` () =
+    let foo = (ProblemTwo.hammingDistance "abc" "def")
+    Assert.Equal(0, ProblemTwo.hammingDistance "abc" "abc")
+    Assert.Equal(2, ProblemTwo.hammingDistance "abc" "cba")
+    Assert.Equal(1, ProblemTwo.hammingDistance "abc" "abd")
+    Assert.Equal(3, ProblemTwo.hammingDistance "abc" "bcd")
