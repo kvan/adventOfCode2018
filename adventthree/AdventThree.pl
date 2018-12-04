@@ -9,9 +9,7 @@ while(<>) {
     /#(\d+) @ (\d+),(\d+): (\d+)x(\d+)/;
     for ($i = 0; $i < $4; $i++) {
         for ($j = 0; $j < $5; $j++) {
-            my $x = $2+$i;
-            my $y = $3+$j;
-            $cellref = \$fabric[$x][$y];
+            $cellref = \$fabric[$2+$i][$3+$i];
             if (!defined $$cellref) {
                 $$cellref = $1;
                 $nonoverlaps{$1} = 1 if !defined $nonoverlaps{$1};
